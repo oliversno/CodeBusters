@@ -7,7 +7,7 @@ The input to the program should be a .tar archive containing a set of tab delimi
 ### *Answer Key*
 The answer key to the test should be in a tab deliminated .txt file. It should match the following formatting:
 ```
-TOURNAMENT_NAME  Codebusters Answer Key
+TOURNAMENT_NAME     Codebusters Answer Key
 ANS1     PTS1
 ANS2     PTS2
 ANSN     PTSN
