@@ -1,11 +1,13 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import sys
 from itertools import islice
 import re
 from os import remove
 
 def fixLine(line):
-	line = re.sub('\W+','', line)
+	r = re.compile(r"[^a-zA-Z0-9ñÑ]")
+	line = r.sub("", line)
 	line = line.upper()
 	return line
 	
