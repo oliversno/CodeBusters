@@ -33,7 +33,6 @@ def main():
 	remove(input_name)
 	with open(input_name, 'w') as fout:
 		for elem in newLine:
-			print(elem)
 			fout.write('{}\n'.format(elem))
 			
 		
