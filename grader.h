@@ -1,4 +1,4 @@
-#ifndef GRADER_H
+#ifdef GRADER_H
 #define GRADER_H
 
-#endif // !GRADER_H
+#endif // GRADER_H

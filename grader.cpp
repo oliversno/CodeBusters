@@ -1,4 +1,20 @@
-#include <stdio.h>
+#include<iostream>
+#include <fstream>
 #include <string>
 #include <vector>
-#include<algorithm>
+#include <algorithm>
+
+int main(int argc, char** argv) {
+  if (argc < 3) {
+    std::cerr << "Must have at least an answer key and one student answer sheet\n";
+    exit (1);
+    if (argv[1] != "KEY.txt") {
+      std::cerr << "Answer Key not named correctly\n";
+      exit(1);
+    }
+    int numStudentAns = argc - 2;
+    std::ifstream fKeyIn;
+    fKeyIn.open(argv[1]);
+
+  }
+}
