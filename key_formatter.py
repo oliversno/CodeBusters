@@ -5,8 +5,8 @@ import re
 
 def fixLine(line):
 	print (line)
-	re.sub('\W+','', line)
-	line.upper()
+	line = re.sub('\W+','', line)
+	line = line.upper()
 	print (line)
 	return
 	
