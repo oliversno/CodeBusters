@@ -9,5 +9,5 @@ studentAns=$(ls | grep -P '_\d+.txt')
 for file in $studentAns
 do
 	echo $file
-	
+	./student_answer_formatter.py file
 done
