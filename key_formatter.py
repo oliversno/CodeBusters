@@ -20,9 +20,12 @@ def main():
 		for line in islice(fin, 0, None):
 			if(firstLine):
 				firstLine = False
-				line = line.rstrip('\n')
+				line = re.split(r'\n+', line)
+				line[1] = 'CodeBusters Answer Key'
 			else:
-				line = fixLine(line)
+				line = re.split(r'\t+', line)
+				line[0] = fixLine(line[0])
+				line[1] = line[1].rstrip('\n')
 			newLine.append(line)
 	for elem in newLine:
 		print (elem)
