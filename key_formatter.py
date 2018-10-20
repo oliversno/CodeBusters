@@ -2,6 +2,7 @@
 import sys
 from itertools import islice
 import re
+from os import remove
 
 def fixLine(line):
 	line = re.sub('\W+','', line)
@@ -27,7 +28,11 @@ def main():
 				line[0] = fixLine(line[0])
 				line[1] = line[1].rstrip('\n')
 			newLine.append(line)
-	for elem in newLine:
-		print (elem)
+	remove(input_name)
+	with open(input_name, 'w') as fout:
+		for elem in newLine:
+			fout.write('{}\t{}\n'.format(elem[0], elem[1]))
+			
+		
 if __name__=='__main__':
 	main()
