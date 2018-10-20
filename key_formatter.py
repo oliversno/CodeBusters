@@ -21,8 +21,7 @@ def main():
 		for line in islice(fin, 0, None):
 			if(firstLine):
 				firstLine = False
-				line = re.split(r'\n+', line)
-				line[1] = 'CodeBusters Answer Key'
+				line = [line.rstrip('\n'), 'CodeBusters Answer Key']
 			else:
 				line = re.split(r'\t+', line)
 				line[0] = fixLine(line[0])
