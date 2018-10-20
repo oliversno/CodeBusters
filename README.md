@@ -5,21 +5,17 @@ A test grader for the Science Olympiad Code Busters Event (2018-2019)
 The input to the program should be a .tar archive containing a set of tab deliminated .txt files. There should be one Answer Key file and Student Answer Sheet file for each team in the event.
 
 ### *Answer Key*
-The answer key to the test should be in a tab deliminated .txt file name "KEY.txt". It should match the following formatting:
+The answer key to the test should be in a tab deliminated .txt file named "KEY.txt". It should match the following formatting:
 ```
-<<<<<<< HEAD
 TOURNAMENT_NAME     Codebusters Answer Key
-=======
-TOURNAMENT_NAME
->>>>>>> development
 ANS1     PTS1
 ANS2     PTS2
 ANSN     PTSN
 ```
-Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a number Each field should be seperated by a single TAB character as a tab deliminated file suggests.
+Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a positive number. Each field should be seperated by a single TAB character as a tab deliminated file suggests.
 
 ### *Student Answer Sheet*
-The input to the program of student answers should be in a set of tab deliminated .txt files. Eachh file should be name "TEAMNUM_TEAMNAME.txt". Where the fields are substituted in apropiatly. Files of this type can be easily generated using Microsoft Excel or other spreadsheet software. Files should match the following formatting:
+The input to the program of student answers should be in a set of tab deliminated .txt files. Each file should be named "TEAMNUM_TEAMNAME.txt". Where the fields are substituted in appropriately. Files of this type can be easily generated using Microsoft Excel or other spreadsheet software. Files should match the following formatting:
 ```
 TEAM_NUMBER     TEAM_NAME
 ANSWER1
