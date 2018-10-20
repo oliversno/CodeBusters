@@ -20,8 +20,6 @@ def main():
 	splitName = re.split(r'_', input_name)
 	teamName = splitName[0]
 	teamNum = splitName[1]
-	print (teamName)
-	print (teamNum)
 	newLine = []
 	with open(input_name, 'r') as fin:
 		firstLine = True
