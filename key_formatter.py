@@ -17,6 +17,9 @@ def main():
 		print ('Incorrect Number of Arguments\n')
 		exit(1)
 	input_name = sys.argv[1]
+	if(input_name != 'KEY.txt'):
+		print('Answer Key must be named KEY.txt')
+		exit(1)
 	newLine = []
 	with open(input_name, 'r') as fin:
 		firstLine = True
