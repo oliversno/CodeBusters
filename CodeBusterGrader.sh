@@ -19,6 +19,9 @@ fi
 if [ ! -f key_formatter.py ]
 	then
 		echo "key_formatter.py not found"
-		echo "Please get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+		echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
 		exit 1
 fi
+# Run key_formatter.py
+./key_formatter.py KEY.txt
+
