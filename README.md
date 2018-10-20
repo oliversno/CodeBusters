@@ -7,12 +7,12 @@ The input to the program should be a .tar archive containing a set of tab delimi
 ### *Answer Key*
 The answer key to the test should be in a tab deliminated .txt file name "KEY.txt". It should match the following formatting:
 ```
-TOURNAMENT_NAME  Codebusters Answer Key
+TOURNAMENT_NAME
 ANS1     PTS1
 ANS2     PTS2
 ANSN     PTSN
 ```
-Where EVENT_NAME is the name of the event that is being graded. The phrasing "Codebusters Answer Key" should appear exactly as above to avoid confusion with another test's answer key or a set of student answers, however the program will accept most changes to it. NOTE: the first line of the answer key .txt is one entry, it is seperated by SPACES NOT TABS. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a number Each field should be seperated by a single TAB character as a tab deliminated file suggests.
+Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a number Each field should be seperated by a single TAB character as a tab deliminated file suggests.
 
 ### *Student Answer Sheet*
 The input to the program of student answers should be in a set of tab deliminated .txt files. Eachh file should be name "TEAMNUM_TEAMNAME.txt". Where the fields are substituted in apropiatly. Files of this type can be easily generated using Microsoft Excel or other spreadsheet software. Files should match the following formatting:
