@@ -20,6 +20,7 @@ def main():
 	splitName = re.split(r'_', input_name)
 	teamName = splitName[0]
 	teamNum = splitName[1]
+	formattedNameNum = teamName + '\t' +teamNum
 	newLine = []
 	with open(input_name, 'r') as fin:
 		firstLine = True
@@ -27,6 +28,9 @@ def main():
 			if(firstLine):
 				firstLine = False
 				line = line.rstrip('\n')
+				if(line != formattedNameNum):
+					print ('File Name does not match File Header!')
+					exit(1)
 			else:
 				line = fixLine(line)
 			newLine.append(line)
