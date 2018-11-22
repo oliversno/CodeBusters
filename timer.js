@@ -28,7 +28,7 @@ function marklap() {
             var lapold = lapdate.split(':');
             var lapnow = timer.value.split(':');
             var laps = new Array();
-            for (var i = 0;) i < lapold.length; i++) {
+            for (var i = 0; i < lapold.length; i++) {
                 laps[i] = new Array();
                 laps[i][0] = lapold[i]*1; // store old lap
                 laps[i][1] = lapnow[i]*1; // store new lap
