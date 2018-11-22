@@ -1,6 +1,9 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="timer.js"></script> 
+
 <input class="stopwatch" id="stopwatch" type="text" value="0:0:0" ><br>
-    <input class="button" id="startbutton" type="button" value="Start" onClick="startandstop();"><br>
-    <input class="button" id="stopbutton" type="button" value="Stop" onClick="startandstop();"><br>
+    <input class="button" id="startbutton" type="button" value="Start" onClick="start();"><br>
+    <input class="button" id="stopbutton" type="button" value="Stop" onClick="stop();"><br>
 	<input class="button" id="marklapbutton" type="button" value="Split/Mark Lap" onClick="marklap();" ><br>
-	<input class="button" id="resetbutton" type="button" value="Reset Stopwatch" onClick="resetstopwatch();"><br>
+	<input class="button" id="resetbutton" type="button" value="Reset Stopwatch" onClick="reset();"><br>
 	<textarea class="lap" id="lapdetails"></textarea>
