@@ -13,6 +13,9 @@ function timecounter(starttime){
 
     var timediff = currentdate.getTime() - starttime;
     if(state == 0) {
+        timediff = timediff + stoptime;
+    }
+    if(state == 1) {
         timer.value = formattedtime(timediff);
         refresh = setTimeout('timecounter(' + starttime +');',10)
     }
@@ -52,27 +55,22 @@ function marklap() {
     }
 }
 
-function start() {
-    var start = document.getElementById('startbutton');
+function startstop() {
+    var startstop = document.getElementById('startstopbutton');
     var startdate = new Date();
     var starttime = startdate.getTime();
-    if(state == 1) {
-        start.value = 'Start';
+    if(state == 0) {
+        startstop.value = 'Stop';
+        state = 1;
+        timecounter(starttime);
+    }
+    else {
+        startstop.value = 'Start';
         state = 0;
         lapdate = '';
     }
 }
 
-function stop() {
-    var stop = document.getElementById('stopbutton');
-    var startdate = new Date();
-    var starttime = startdate.getTime();
-    if(state == 0) {
-        start.value = 'Stop';
-        state = 1;
-        timecounter(starttime);
-    }
-}
 
 function reset() {
     lapdetails.value = '';
