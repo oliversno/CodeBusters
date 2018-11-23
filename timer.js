@@ -16,6 +16,10 @@ function timecounter(starttime){
         timediff = timediff + stoptime;
     }
     if(state == 1) {
+        if(timediff >= 600000) { //10 min = 600000
+            lapdetails.value += 'time up';
+            startstop();
+        }
         timer.value = formattedtime(timediff);
         refresh = setTimeout('timecounter(' + starttime +');',10)
     }
