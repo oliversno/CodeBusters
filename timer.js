@@ -6,7 +6,7 @@ var current;
 var lapdate = ""
 var lapdetails;
 
-function timecounter(starttime){
+function timecounter(starttime, stoptime){
     currentdate = new Date();
     lapdetails = document.getElementById('lapdetails');
     timer = document.getElementById('timer');
@@ -16,7 +16,7 @@ function timecounter(starttime){
         timediff = timediff + stoptime;
     }
     if(state == 1) {
-        if(timediff >= 600000) { //10 min = 600000
+        if(timediff >= stoptime*60*1000) { //10 min = 600000
             lapdetails.value += 'time up';
             startstop();
         }
@@ -61,12 +61,13 @@ function marklap() {
 
 function startstop() {
     var startstop = document.getElementById('startstopbutton');
+    var time = document.getElementById('time');
     var startdate = new Date();
     var starttime = startdate.getTime();
     if(state == 0) {
         startstop.value = 'Stop';
         state = 1;
-        timecounter(starttime);
+        timecounter(starttime, time.value);
     }
     else {
         startstop.value = 'Start';
@@ -85,7 +86,8 @@ function reset() {
     if(state == 1){
         var resetdate = new Date();
         var resettime = resetdate.getTime();
-        timecounter(resettime);
+        var time = document.getElementById('time');
+        timecounter(resettime, time.value);
     }
     else {
         timer.value = "0:0:0";
