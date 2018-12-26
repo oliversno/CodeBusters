@@ -26,7 +26,7 @@ struct Score {
 
 bool isNumber(std::string& str) {
     std::string::const_iterator it = str.begin();
-    if(!isdigit(*it) && *it != '-'))
+    if(!isdigit(*it) && *it != '-')
         return false;
     for(;it != str.end(); it++) {
         if(!isdigit(*it))
@@ -39,7 +39,7 @@ void scoreAns(Question key, std::string ans, Score& team) {
     if(isNumber(key.ans)) {
         int penalty = 0;
         if(key.ans != ans)
-            penalty = key.pts
+            penalty = key.pts;
         team.points.push_back(key.pts - penalty);
     }
     else {
