@@ -17,9 +17,9 @@ int main(int argc, char** argv) {
     for(int i = 0; i < numStudentAns;  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
-        std::string line = nextLine(fKeyIn);
+        std::istringstream line = nextLine(fKeyIn);
         std::string ans;
-        std::string pts;
+        int pts;
         line >> ans;
         line >> pts;
         
