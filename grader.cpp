@@ -17,12 +17,18 @@ int main(int argc, char** argv) {
     for(int i = 0; i < numStudentAns;  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
+        Score team;
+        std::istringstream team_info = nextLine(fFormIn);
+        team_info >> team.team_name >> team.team_num;
+
         std::istringstream line = nextLine(fKeyIn);
-        std::string ans;
-        int pts;
-        line >> ans;
-        line >> pts;
-        
+        Question correct;
+        line >> correct.ans >> correct.pts;
+
+        std::string team_ans;
+        fFormIn >> team_ans;
+
+        scoreAns(correct, team_ans, team);
     }
   }
 }
