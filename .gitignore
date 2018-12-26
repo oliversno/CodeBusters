@@ -34,3 +34,5 @@
 /.vs/ProjectSettings.json
 /.vs/CodeBustersGrader/v15
 /.vs
+.vscode/launch.json
+.vscode/settings.json
