@@ -1,6 +1,4 @@
-#include<iostream>
-#include <fstream>
-#include <string>
+#include "grader.h"
 #include <vector>
 #include <algorithm>
 
@@ -15,6 +13,16 @@ int main(int argc, char** argv) {
     int numStudentAns = argc - 2;
     std::ifstream fKeyIn;
     fKeyIn.open(argv[1]);
-
+    nextLine(fKeyIn);
+    for(int i = 0; i < numStudentAns;  i++){
+        std::ifstream fFormIn;
+        fFormIn.open(argv[i+2]);
+        std::string line = nextLine(fKeyIn);
+        std::string ans;
+        std::string pts;
+        line >> ans;
+        line >> pts;
+        
+    }
   }
 }
