@@ -1,5 +1,4 @@
 #include "grader.h"
-#include <algorithm>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -18,7 +17,7 @@ int main(int argc, char** argv) {
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
         std::istringstream team_info = nextLine(fFormIn);
-        team_info >> teams[i].team_name >> teams[i].team_num;
+        teams[i].setInfo(team_info);
         nextLine(fKeyIn);
         while(!fKeyIn.eof()) {
           std::istringstream line = nextLine(fKeyIn);
@@ -28,8 +27,9 @@ int main(int argc, char** argv) {
           std::string team_ans;
           fFormIn >> team_ans;
 
-          scoreAns(correct, team_ans, teams[i]);
+          teams[i].scoreAns(correct, team_ans);
       }
+      teams[i].sumPoints();
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
     }
