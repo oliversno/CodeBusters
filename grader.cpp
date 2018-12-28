@@ -33,5 +33,8 @@ int main(int argc, char** argv) {
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
     }
+    
+    std::sort(teams.begin(), teams.end());
+    
   }
 }

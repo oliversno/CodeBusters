@@ -23,11 +23,24 @@ struct Question {
 
 class Score {
     private:
-        std::string team_name = "N/A";
-        int team_num = -1;
+        std::string team_name;
+        int team_num;
         std::vector<int> points;
-        int total_points = -1;
+        int total_points;
     public:
+    Score(void) { //ctor
+        team_name = "NONE";
+        team_num = -1;
+        total_points = -1;
+    }
+    ~Score(void) { //dtor
+        points.clear();
+    }
+    bool operator<(const Score& other_team) const {
+        return total_points < other_team.total_points;
+        //TODO: Logic for tiebreakers
+    }
+
     void setInfo(std::istream& is) {
         is >> team_name >> team_num;
     }
