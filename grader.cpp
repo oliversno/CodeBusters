@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     fKeyIn.open(argv[1]);
     std::vector<Score> teams;
     teams.reserve(numStudentAns);
-    for(int i = 0; i < numStudentAns;  i++){
+    for(int i = 0; i < teams.size();  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
         std::istringstream team_info = nextLine(fFormIn);
@@ -33,8 +33,18 @@ int main(int argc, char** argv) {
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
     }
-    
+    std::istringstream header = nextLine(fKeyIn);
+    std::string header_str = header.str();
+    std::string tournament_name = header_str.substr(0, header_str.length() - 22);
+    // 22 is length of "Codebusters Answer Key"
     std::sort(teams.begin(), teams.end());
     
+    std::ofstream fRankingsOut;
+    fRankingsOut.open(tournament_name + "_Codebusters_Rankings.txt");
+    fRankingsOut <<"Rank\tTeam Name\tTeam Number\tScore\n";
+    for(int i = 0; i < teams.size(); i++) {
+      fRankingsOut << '0' + i << '\t' << teams[i].getTeamName() << '\t' <<
+        teams[i].getTeamNum() << '\t' << teams[i].getTotalScore() << '\n';
+    }
   }
 }

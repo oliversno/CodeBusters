@@ -70,6 +70,15 @@ class Score {
     void sumPoints() {
         total_points = std::accumulate(points.begin(), points.end(), 0);
     }
+    std::string getTeamName() const {
+        return team_name;
+    }
+    int getTeamNum() const {
+        return team_num;
+    }
+    int getTotalScore() const {
+        return total_points;
+    }
 };
 
 bool isNumber(std::string& str) {
