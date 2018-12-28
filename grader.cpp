@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
 
           teams[i].scoreAns(correct, team_ans);
       }
+      fFormIn.close()
       teams[i].sumPoints();
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
@@ -46,5 +47,7 @@ int main(int argc, char** argv) {
       fRankingsOut << '0' + i << '\t' << teams[i].getTeamName() << '\t' <<
         teams[i].getTeamNum() << '\t' << teams[i].getTotalScore() << '\n';
     }
+    fRankingsOut.close();
+    fKeyIn.close();
   }
 }
