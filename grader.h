@@ -16,6 +16,17 @@ std::istringstream nextLine(std::istream& is) {
     return os;
 }
 
+bool isNumber(std::string& str) {
+    std::string::const_iterator it = str.begin();
+    if(!isdigit(*it) && *it != '-')
+        return false;
+    for(;it != str.end(); it++) {
+        if(!isdigit(*it))
+            return false;
+    }
+    return true;
+}
+
 struct Question {
     std::string ans;
     int pts;
@@ -81,15 +92,5 @@ class Score {
     }
 };
 
-bool isNumber(std::string& str) {
-    std::string::const_iterator it = str.begin();
-    if(!isdigit(*it) && *it != '-')
-        return false;
-    for(;it != str.end(); it++) {
-        if(!isdigit(*it))
-            return false;
-    }
-    return true;
-}
 
 #endif // GRADER_H
