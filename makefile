@@ -1,9 +1,7 @@
 grader: grader.o
-	g++ grader.o -o grader
+	g++ -Wall -Werror grader.cpp grader.h -o grader
 debug: grader.o
-	g++ --debug grader.o -o grader
-grader.o: grader.cpp
-	g++ -Wall -Werror grader.cpp grader.h -o grader.o
+	g++ --debug -Wall -Werror grader.cpp grader.h -o grader
 .PHONY: clean
 .PHONY: debug
 clean:
