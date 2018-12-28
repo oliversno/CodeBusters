@@ -4,7 +4,8 @@ int main(int argc, char** argv) {
   if (argc < 3) {
     std::cerr << "Must have at least an answer key and one student answer sheet\n";
     exit (1);
-    if (argv[1] != "KEY.txt") {
+    std::string arg = argv[1];
+    if (arg != "KEY.txt") {
       std::cerr << "Answer Key not named correctly\n";
       exit(1);
     }
@@ -13,7 +14,7 @@ int main(int argc, char** argv) {
     fKeyIn.open(argv[1]);
     std::vector<Score> teams;
     teams.reserve(numStudentAns);
-    for(int i = 0; i < teams.size();  i++){
+    for(size_t i = 0; i < teams.size();  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
         std::istringstream team_info = nextLine(fFormIn);
@@ -29,7 +30,7 @@ int main(int argc, char** argv) {
 
           teams[i].scoreAns(correct, team_ans);
       }
-      fFormIn.close()
+      fFormIn.close();
       teams[i].sumPoints();
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
     std::ofstream fRankingsOut;
     fRankingsOut.open(tournament_name + "_Codebusters_Rankings.txt");
     fRankingsOut <<"Rank\tTeam Name\tTeam Number\tScore\n";
-    for(int i = 0; i < teams.size(); i++) {
+    for(size_t i = 0; i < teams.size(); i++) {
       fRankingsOut << '0' + i << '\t' << teams[i].getTeamName() << '\t' <<
         teams[i].getTeamNum() << '\t' << teams[i].getTotalScore() << '\n';
     }

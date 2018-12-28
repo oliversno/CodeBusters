@@ -64,7 +64,7 @@ class Score {
         }
         else {
             int errors = -2;
-            for(int i = 0; i <key.ans.length(); i++) {
+            for(size_t i = 0; i < key.ans.length(); i++) {
                 if(key.ans[i] != ans[i])
                     errors++;
             }
