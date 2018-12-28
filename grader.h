@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 std::istringstream nextLine(std::istream& is) {
     std::string temp;
@@ -22,6 +23,7 @@ struct Score {
     std::string team_name;
     int team_num;
     std::vector<int> points;
+    int total_points;
 };
 
 bool isNumber(std::string& str) {
