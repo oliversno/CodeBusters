@@ -4,6 +4,7 @@ int main(int argc, char** argv) {
   if (argc < 3) {
     std::cerr << "Must have at least an answer key and one student answer sheet\n";
     exit (1);
+  }
     std::string arg = argv[1];
     if (arg != "KEY.txt") {
       std::cerr << "Answer Key not named correctly\n";
@@ -14,14 +15,14 @@ int main(int argc, char** argv) {
     fKeyIn.open(argv[1]);
     std::vector<Score> teams;
     teams.reserve(numStudentAns);
-    for(size_t i = 0; i < teams.size();  i++){
+    for(size_t i = 0; i < teams.capacity();  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
-        std::istringstream team_info = nextLine(fFormIn);
+        std::stringstream team_info = nextLine(fFormIn);
         teams[i].setInfo(team_info);
         nextLine(fKeyIn);
         while(!fKeyIn.eof()) {
-          std::istringstream line = nextLine(fKeyIn);
+          std::stringstream line = nextLine(fKeyIn);
           Question correct;
           line >> correct.ans >> correct.pts;
 
@@ -35,10 +36,10 @@ int main(int argc, char** argv) {
       fKeyIn.clear();
       fKeyIn.seekg(0, std::ios::beg);
     }
-    std::istringstream header = nextLine(fKeyIn);
+    std::stringstream header = nextLine(fKeyIn);
     std::string header_str = header.str();
-    std::string tournament_name = header_str.substr(0, header_str.length() - 22);
-    // 22 is length of "Codebusters Answer Key"
+    std::string tournament_name = header_str.substr(0, header_str.length() - 23);
+    // 22 is length of "Codebusters Answer Key" plus 1 for the tab
     std::sort(teams.begin(), teams.end());
     
     std::ofstream fRankingsOut;
@@ -51,4 +52,3 @@ int main(int argc, char** argv) {
     fRankingsOut.close();
     fKeyIn.close();
   }
-}

@@ -9,10 +9,10 @@
 #include <algorithm>
 #include <numeric>
 
-std::istringstream nextLine(std::istream& is) {
+std::stringstream nextLine(std::istream& is) {
     std::string temp;
     std::getline(is, temp);
-    std::istringstream os(temp);
+    std::stringstream os(temp);
     return os;
 }
 
@@ -52,8 +52,8 @@ class Score {
         //TODO: Logic for tiebreakers
     }
 
-    void setInfo(std::istream& is) {
-        is >> team_name >> team_num;
+    void setInfo(std::stringstream& is) {
+        is >> team_num >> team_name;
     }
     void scoreAns(Question key, std::string ans) {
         if(isNumber(key.ans)) {
