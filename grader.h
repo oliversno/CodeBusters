@@ -52,9 +52,6 @@ class Score {
         //TODO: Logic for tiebreakers
     }
 
-    void setInfo(std::stringstream& is) {
-        is >> team_num >> team_name;
-    }
     void scoreAns(Question key, std::string ans) {
         if(isNumber(key.ans)) {
             int penalty = 0;
@@ -89,6 +86,12 @@ class Score {
     }
     int getTotalScore() const {
         return total_points;
+    }
+    void setTeamNum(const int num_in) {
+        team_num = num_in;
+    }
+    void setTeamName(std::string& name_in) {
+        team_name = name_in;
     }
 };
 

@@ -19,7 +19,11 @@ int main(int argc, char** argv) {
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
         std::stringstream team_info = nextLine(fFormIn);
-        teams[i].setInfo(team_info);
+        int num;
+        std::string name;
+        team_info >> num >> name;
+        teams[i].setTeamNum(num);
+        teams[i].setTeamName(name);
         nextLine(fKeyIn);
         while(!fKeyIn.eof()) {
           std::stringstream line = nextLine(fKeyIn);
