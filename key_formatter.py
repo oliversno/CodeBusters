@@ -26,16 +26,16 @@ def main():
 		for line in islice(fin, 0, None):
 			if(firstLine):
 				firstLine = False
-				line = [line.rstrip('\n'), 'CodeBusters Answer Key']
+				line = [line.rstrip('\n'), 'CodeBusters Answer Key','']
 			else:
 				line = re.split(r'\t+', line)
 				line[0] = fixLine(line[0])
-				line[1] = line[1].rstrip('\n')
+				line[2] = line[2].rstrip('\n')
 			newLine.append(line)
 	remove(input_name)
 	with open(input_name, 'w') as fout:
 		for elem in newLine:
-			fout.write('{}\t{}\n'.format(elem[0], elem[1]))
+			fout.write('{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2]))
 			
 		
 if __name__=='__main__':
