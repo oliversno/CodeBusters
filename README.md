@@ -8,11 +8,11 @@ The input to the program should be a .tar archive containing a set of tab delimi
 The answer key to the test should be in a tab deliminated .txt file named "KEY.txt". It should match the following formatting:
 ```
 TOURNAMENT_NAME     Codebusters Answer Key
-ANS1     PTS1
-ANS2     PTS2
-ANSN     PTSN
+ANS1     PTS1	TIEBREAKER1
+ANS2     PTS2	TIEBREAKER2
+ANSN     PTSN	TIEBREAKN
 ```
-Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a positive number. Each field should be seperated by a single TAB character as a tab deliminated file suggests.
+Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a positive number. Each field should be seperated by a single TAB character as a tab deliminated file suggests. TIEBREAKER should list the tiebreaker order the questions are in. Where 1 is the first question ranked in the event of a tie and so on. Each field shoud contain a positive number from 1 to N.
 
 ### *Student Answer Sheet*
 The input to the program of student answers should be in a set of tab deliminated .txt files. Each file should be named "TEAMNUM_TEAMNAME.txt". Where the fields are substituted in appropriately. Files of this type can be easily generated using Microsoft Excel or other spreadsheet software. Files should match the following formatting:
