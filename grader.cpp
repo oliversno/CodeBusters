@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
     std::ifstream fKeyIn;
     fKeyIn.open(argv[1]);
     std::vector<Score> teams;
-    teams.reserve(numStudentAns);
+    teams.resize(numStudentAns);
     for(size_t i = 0; i < teams.capacity();  i++){
         std::ifstream fFormIn;
         fFormIn.open(argv[i+2]);
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     fRankingsOut.open(tournament_name + "_Codebusters_Rankings.txt");
     fRankingsOut <<"Rank\tTeam Name\tTeam Number\tScore\n";
     for(size_t i = 0; i < teams.size(); i++) {
-      fRankingsOut << '0' + i << '\t' << teams[i].getTeamName() << '\t' <<
+      fRankingsOut << std::to_string(i+1) << '\t' << teams[i].getTeamName() << '\t' <<
         teams[i].getTeamNum() << '\t' << teams[i].getTotalScore() << '\n';
     }
     fRankingsOut.close();
