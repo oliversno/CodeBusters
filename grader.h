@@ -48,7 +48,7 @@ class Score {
         points.clear();
     }
     bool operator<(const Score& other_team) const {
-        return total_points < other_team.total_points;
+        return total_points > other_team.total_points;
         //TODO: Logic for tiebreakers
     }
 
