@@ -27,13 +27,15 @@ int main(int argc, char** argv) {
         nextLine(fKeyIn);
         while(!fKeyIn.eof()) {
           std::stringstream line = nextLine(fKeyIn);
-          Question correct;
-          line >> correct.ans >> correct.pts;
+          if(line.str() != "") {
+            Question correct;
+            line >> correct.ans >> correct.pts;
 
-          std::string team_ans;
-          fFormIn >> team_ans;
+            std::string team_ans;
+            fFormIn >> team_ans;
 
-          teams[i].scoreAns(correct, team_ans);
+            teams[i].scoreAns(correct, team_ans);
+          }
       }
       fFormIn.close();
       teams[i].sumPoints();
