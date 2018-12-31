@@ -1,5 +1,6 @@
 #/usr/bin/bash
 
+make clean
 ./filecheck $1
 # Run key_formatter.py
 ./key_formatter.py KEY.txt
@@ -11,3 +12,6 @@ do
 	echo $file
 	./student_answer_formatter.py file
 done
+make grader
+./grader KEY.txt $studentAns
+
