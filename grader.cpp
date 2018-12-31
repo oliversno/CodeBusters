@@ -42,22 +42,8 @@ int main(int argc, char** argv) {
           fFormIn >> team_ans;
           teams[i].scoreAns(correct, team_ans);
         }
-/*         while(!fKeyIn.eof()) {
-          std::stringstream line = nextLine(fKeyIn);
-          if(line.str() != "") {
-            Question correct;
-            line >> correct.ans >> correct.pts;
-
-            std::string team_ans;
-            fFormIn >> team_ans;
-
-            teams[i].scoreAns(correct, team_ans);
-          }
-      } */
       fFormIn.close();
       teams[i].sumPoints();
-      // fKeyIn.clear();
-      // fKeyIn.seekg(0, std::ios::beg);
     }
     // 22 is length of "Codebusters Answer Key" plus 1 for the tab
     std::sort(teams.begin(), teams.end());
