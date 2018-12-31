@@ -14,6 +14,18 @@ int main(int argc, char** argv) {
     std::ifstream fKeyIn;
     fKeyIn.open(argv[1]);
     std::vector<Score> teams;
+    std::vector<Question> answers;
+    std::stringstream header = nextLine(fKeyIn);
+    std::string header_str = header.str();
+    std::string tournament_name = header_str.substr(0, header_str.length() - 23);
+    while(!fKeyIn.eof()) {
+        std::stringstream line = nextLine(fKeyIn);
+        if(line.str() != "") {
+          Question correct;
+          line >> correct.ans >> correct.pts;
+          answers.push_back(correct);
+        }
+    }
     teams.resize(numStudentAns);
     for(size_t i = 0; i < teams.capacity();  i++){
         std::ifstream fFormIn;
@@ -25,7 +37,12 @@ int main(int argc, char** argv) {
         teams[i].setTeamNum(num);
         teams[i].setTeamName(name);
         nextLine(fKeyIn);
-        while(!fKeyIn.eof()) {
+        for(Question correct : answers) {
+          std::string team_ans;
+          fFormIn >> team_ans;
+          teams[i].scoreAns(correct, team_ans);
+        }
+/*         while(!fKeyIn.eof()) {
           std::stringstream line = nextLine(fKeyIn);
           if(line.str() != "") {
             Question correct;
@@ -36,15 +53,12 @@ int main(int argc, char** argv) {
 
             teams[i].scoreAns(correct, team_ans);
           }
-      }
+      } */
       fFormIn.close();
       teams[i].sumPoints();
-      fKeyIn.clear();
-      fKeyIn.seekg(0, std::ios::beg);
+      // fKeyIn.clear();
+      // fKeyIn.seekg(0, std::ios::beg);
     }
-    std::stringstream header = nextLine(fKeyIn);
-    std::string header_str = header.str();
-    std::string tournament_name = header_str.substr(0, header_str.length() - 23);
     // 22 is length of "Codebusters Answer Key" plus 1 for the tab
     std::sort(teams.begin(), teams.end());
     
