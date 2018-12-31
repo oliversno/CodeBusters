@@ -30,6 +30,19 @@ bool isNumber(std::string& str) {
 struct Question {
     std::string ans;
     int pts;
+    int tiebreaker_order;
+};
+
+class tieFunctor {
+    private:
+        int rank;
+    public:
+        tieFunctor(int in) {
+            rank = in;
+        }
+        bool operator()(Question q) {
+            return q.tiebreaker_order == rank;
+        }
 };
 
 class Score {
@@ -38,6 +51,7 @@ class Score {
         int team_num;
         std::vector<int> points;
         int total_points;
+        std::vector<Question> questions;
     public:
     Score(void) { //ctor
         team_name = "NONE";
@@ -48,6 +62,20 @@ class Score {
         points.clear();
     }
     bool operator<(const Score& other_team) const {
+        if(total_points == other_team.total_points) {
+            size_t tie_number = 1;
+            while(tie_number <= questions.size()) {
+                tieFunctor pred(tie_number);
+                int pos = std::distance(questions.begin(), std::find_if(questions.begin(), questions.end(), pred));
+                if(points[pos] == other_team.points[pos]) {
+                    tie_number++;
+                }
+                else {
+                    return points[pos] > other_team.points[pos];
+                 }
+            }
+
+        }
         return total_points > other_team.total_points;
         //TODO: Logic for tiebreakers
     }
@@ -92,6 +120,9 @@ class Score {
     }
     void setTeamName(std::string& name_in) {
         team_name = name_in;
+    }
+    void setQuestions(std::vector<Question> q_in) {
+        questions = q_in;
     }
 };
 

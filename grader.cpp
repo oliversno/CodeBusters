@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
         std::stringstream line = nextLine(fKeyIn);
         if(line.str() != "") {
           Question correct;
-          line >> correct.ans >> correct.pts;
+          line >> correct.ans >> correct.pts >> correct.tiebreaker_order;
           answers.push_back(correct);
         }
     }
@@ -36,6 +36,7 @@ int main(int argc, char** argv) {
         team_info >> num >> name;
         teams[i].setTeamNum(num);
         teams[i].setTeamName(name);
+        teams[i].setQuestions(answers);
         nextLine(fKeyIn);
         for(Question correct : answers) {
           std::string team_ans;
