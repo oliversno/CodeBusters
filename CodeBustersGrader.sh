@@ -14,4 +14,4 @@ do
 done
 make grader
 ./grader KEY.txt $studentAns
-rankingsSheet=$(ls | grep -P '.*Codebusters_Rankings.txt')
+rankingsSheet=$(ls | grep -P 'Codebusters_Rankings.txt$')
