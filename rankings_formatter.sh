@@ -10,4 +10,10 @@ tournamentName=$(sed 's/_Codebusters_Rankings.txt//' temp.txt)
 echo $tournamentName
 hrFormName="${tournamentName}_Codebusters_Rankings_hr.md"
 echo $hrFormName
+rm -f "${hrFormName}"
+echo "Codebusters Rankings - ${tournamentName}" > "${hrFormName}"
+echo "***" >> "${hrFormName}"
+echo "/ Rank / Team Name / Team Number / Score /" >> "${hrFormName}"
+echo "/-----/:---------:/:-----------:/------:/" >> "${hrFormName}"
+cat "${hrFormName}"
 rm temp.txt
