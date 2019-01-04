@@ -18,6 +18,7 @@ int main(int argc, char** argv) {
     std::stringstream header = nextLine(fKeyIn);
     std::string header_str = header.str();
     std::string tournament_name = header_str.substr(0, header_str.length() - 23);
+	tournament_name = space2underscoreStr(tournament_name);
     while(!fKeyIn.eof()) {
         std::stringstream line = nextLine(fKeyIn);
         if(line.str() != "") {

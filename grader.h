@@ -16,6 +16,19 @@ std::stringstream nextLine(std::istream& is) {
     return os;
 }
 
+char space2underscoreOp(char c) {
+	if(c == ' ')
+		return '_';
+	return c;
+}
+
+std::string space2underscoreStr(std::string str) {
+	std::string res;
+	res.resize(str.size());
+	std::transform(str.begin(), str.end(), res.begin(), space2underscoreOp);
+	return res;
+}
+
 bool isNumber(std::string& str) {
     std::string::const_iterator it = str.begin();
     if(!isdigit(*it) && *it != '-')
