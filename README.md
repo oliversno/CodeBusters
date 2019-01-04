@@ -1,6 +1,9 @@
 # CodeBusters
 A test grader for the Science Olympiad Code Busters Event (2018-2019)
 
+## **Required Packages**
+colordiff - sudo apt-get install colordiff
+
 ## **Input Format**
 The input to the program should be a .tar archive containing a set of tab deliminated .txt files. There should be one Answer Key file and Student Answer Sheet file for each team in the event.
 
