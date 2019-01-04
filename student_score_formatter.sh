@@ -19,4 +19,10 @@ cat temp2.txt | tr '\r\n' ' ' > temp3.txt #replace \n with spaces
 correctAns=()
 read -a correctAns < temp3.txt
 echo ${correctAns[*]}
+rm -f temp2.txt temp3.txt
+cut -f2 -s temp.txt > temp2.txt
+cat temp2.txt | tr '\r\n' ' ' > temp3.txt #replace \n with spaces
+points=()
+read -a points < temp3.txt
+echo ${points[*]}
 #echo "Student Answer	Correct Answer	Points	Diff" > "${newFileName}"
