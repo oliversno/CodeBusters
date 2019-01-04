@@ -53,7 +53,7 @@ TEAM_NUM - TEAM_NAME Score Sheet - TOURNAMENT_NAME
 ***
 | Student Answer | Correct Answer | Points |      Diff      |
 |:--------------:|:--------------:|-------:|:--------------:|
-|   STUDENTANS   |    CORECTANS   |    PTS | STUDENTDIFFANS |
+|   STUDENTANS   |    CORRECTANS   |    PTS | STUDENTDIFFANS |
 
 
 The tab deliminated version will be of the form:
