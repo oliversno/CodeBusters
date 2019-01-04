@@ -18,9 +18,9 @@ def main():
 		exit(1)
 	input_name = sys.argv[1]
 	splitName = re.split(r'_', input_name)
-	teamName = splitName[0]
-	teamNum = splitName[1]
-	formattedNameNum = teamName + '\t' +teamNum
+	teamNum = splitName[0]
+	teamName = splitName[1]
+	formattedNameNum = teamNum + '\t' + teamName
 	newLine = []
 	with open(input_name, 'r') as fin:
 		firstLine = True
@@ -28,7 +28,8 @@ def main():
 			if(firstLine):
 				firstLine = False
 				line = line.rstrip('\n')
-				if(line != formattedNameNum):
+				txtline = line + ".txt"
+				if(txtline != formattedNameNum):
 					print ('File Name does not match File Header!')
 					exit(1)
 			else:
