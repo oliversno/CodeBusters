@@ -1,6 +1,6 @@
 #/usr/bin/bash
 
-make clean
+#make clean
 ./filecheck.sh $1
 # Run key_formatter.py
 ./key_formatter.py KEY.txt
@@ -16,3 +16,10 @@ make grader
 ./grader KEY.txt $studentAns
 rankingsSheet=$(ls | grep -P 'Codebusters_Rankings.txt$')
 ./rankings_formatter.sh $rankingsSheet
+rm -f temp.txt
+echo ${rankingsSheet} > temp.txt
+tournamentName=$(sed 's/_Codebusters_Rankings.txt//' temp.txt)
+for file in $studentAns
+do
+	./student_score_formatter.sh $file KEY.txt $tournamentName
+done
