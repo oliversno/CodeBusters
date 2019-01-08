@@ -25,4 +25,8 @@ cat temp2.txt | tr '\r\n' ' ' > temp3.txt #replace \n with spaces
 points=()
 read -a points < temp3.txt
 echo ${points[*]}
-#echo "Student Answer	Correct Answer	Points	Diff" > "${newFileName}"
+echo "Student Answer	Correct Answer	Points	Diff" > "${newFileName}"
+for i in ${!studentAns[*]}
+do
+	echo ${studentAns[i]}	${correctAns[i]}	${points[i]} >> "${newFileName}"
+done
