@@ -36,9 +36,3 @@ strTransLit=$2
 diff --changed-group-format='${RED}%=${RST}' \
   <(toSingleCharLines <<<"$strOrg") <(toSingleCharLines <<<"$strTransLit") |
     fromSingleCharLines | printColored
-
-# Print the TRANSLITERATED string with the characters that RESULT FROM
-# transliteration highlighted in CYAN.
-diff --changed-group-format='${CYA}%=${RST}' \
-  <(toSingleCharLines <<<"$strTransLit") <(toSingleCharLines <<<"$strOrg") |
-    fromSingleCharLines | printColored
