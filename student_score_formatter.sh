@@ -28,5 +28,6 @@ echo ${points[*]}
 echo "Student Answer	Correct Answer	Points	Diff" > "${newFileName}"
 for i in ${!studentAns[*]}
 do
-	echo ${studentAns[i]}	${correctAns[i]}	${points[i]} >> "${newFileName}"
+	highlighted=$(./highlight.sh ${studentAns[i]} ${correctAns[i]})
+	echo ${studentAns[i]}	${correctAns[i]}	${points[i]}	${highlighted//\\n/} >> "${newFileName}"
 done
