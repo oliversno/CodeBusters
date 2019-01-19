@@ -3,6 +3,7 @@
 echo $1 > temp.txt
 team=$(sed 's/.txt//' temp.txt)
 newFileName="$team"_"$3"_Score_Sheet.txt
+hrFileName="$team"_"$3"_hr.md
 echo $newFileName
 rm -f temp2.txt
 cp "$1" temp.txt
@@ -26,8 +27,13 @@ points=()
 read -a points < temp3.txt
 echo ${points[*]}
 echo "Student Answer	Correct Answer	Points	Diff" > "${newFileName}"
+echo "${team} Score Sheet - $3" > "${hrFileName}"
+echo "***" >> "${hrFileName}"
+echo "| Student Answer | Correct Answer | Points |		Diff	|" >> "${hrFileName}"
+echo "|:--------------:|:--------------:|-------:|:--------------:|" >> "${hrFileName}"
 for i in ${!studentAns[*]}
 do
 	highlighted=$(./highlight.sh ${studentAns[i]} ${correctAns[i]})
 	echo ${studentAns[i]}	${correctAns[i]}	${points[i]}	${highlighted//\\n/} >> "${newFileName}"
+	echo "| ${studentAns[i]} | ${correctAns[i]} | ${points[i]} | ${highlighted//\\n/} |" >> "${hrFileName}"
 done
