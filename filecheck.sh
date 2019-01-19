@@ -29,3 +29,38 @@ if [ ! -f student_answer_formatter.py ]
 		echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
 		exit 1
 fi
+# Make sure grader.cpp exists
+if [ ! -f grader.cpp ]
+	then
+		echo "grader.cpp not found"
+		echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+		exit 1
+fi
+# Make sure grader.h exists
+if [ ! -f grader.h ]
+	then
+		echo "grader.h not found"
+		echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+		exit 1
+fi
+# Make sure highlight.sh exists
+if [ ! -f highlight.sh ]
+    then
+        echo "highlight.sh not found"
+        echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+        exit 1
+fi
+# Make sure rankings_formatter.sh exists
+if [ ! -f rankings_formatter.sh ]
+    then
+        echo "rankings_formatter.sh not found"
+        echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+        exit 1
+fi
+# Make sure student_score_formatter.sh exists
+if [ ! -f student_score_formatter.sh ]
+    then
+        echo "student_score_formatter.sh not found"
+        echo "Get a correct copy of CodeBustersGrader at https://github.com/oliversno/CodeBustersGrader"
+        exit 1
+fi 
