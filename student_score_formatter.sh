@@ -37,3 +37,4 @@ do
 	echo ${studentAns[i]}	${correctAns[i]}	${points[i]}	${highlighted//\\n/} >> "${newFileName}"
 	echo "| ${studentAns[i]} | ${correctAns[i]} | ${points[i]} | ${highlighted//\\n/} |" >> "${hrFileName}"
 done
+rm -f temp.txt temp2.txt temp3.txt
