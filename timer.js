@@ -6,7 +6,7 @@ var current;
 var lapdate = ""
 var lapdetails;
 
-function timecounter(starttime, stoptime){
+function timecounter(starttime){
     currentdate = new Date();
     lapdetails = document.getElementById('lapdetails');
     timer = document.getElementById('timer');
@@ -16,12 +16,13 @@ function timecounter(starttime, stoptime){
         timediff = timediff + stoptime;
     }
     if(state == 1) {
-        if(timediff >= stoptime*60*1000) { //10 min = 600000
+        var time = document.getElementById('time');
+        if(timediff >= time.value*60*1000) { //10 min = 600000
             lapdetails.value += 'time up';
             startstop();
         }
         timer.value = formattedtime(timediff);
-        refresh = setTimeout('timecounter(' + starttime +');',10)
+        refresh = setTimeout(timecounter, 10, starttime)
     }
     else {
         window.clearTimeout(refresh);
@@ -31,29 +32,6 @@ function timecounter(starttime, stoptime){
 
 function marklap() {
     if(state == 1) {
-        // if(lapdate != '') {
-        //     var lapold = lapdate.split(':');
-        //     var lapnow = timer.value.split(':');
-        //     var laps = new Array();
-        //     for (var i = 0; i < lapold.length; i++) {
-        //         laps[i] = new Array();
-        //         laps[i][0] = lapold[i]*1; // store old lap
-        //         laps[i][1] = lapnow[i]*1; // store new lap
-        //     }
-        //     if(laps[1][1] < laps[1][0]) { // if new lap < old lap
-        //         laps[1][1] += 60;
-        //         laps[0][1] -= 1;
-        //     }
-        //     if(laps[2][1] < laps[2][0]) {
-        //         laps[2][1] += 10;
-        //         laps[1][1] -= 1;
-        //     }
-        //     var mzereos = (laps[0][1] - laps[0][0]) < 10?'0':'';
-        //     var szeroes = (laps[1][1] - laps[1][0]) <10?'0':'';
-        //     lapdetails.value += '\t+' + mzereos + (laps[0][1] - laps[0][0]) + ':' 
-        //     + szeros + (laps[1][1] - laps[1][0]) + ':' 
-        //        + (laps[2][1] - laps[2][0]) + '\n';
-        // }
         lapdate = timer.value;
         lapdetails.value += (++lapcounter) + '. ' + timer.value + '\n';
     }
@@ -61,13 +39,12 @@ function marklap() {
 
 function startstop() {
     var startstop = document.getElementById('startstopbutton');
-    var time = document.getElementById('time');
     var startdate = new Date();
     var starttime = startdate.getTime();
     if(state == 0) {
         startstop.value = 'Stop';
         state = 1;
-        timecounter(starttime, time.value);
+        timecounter(starttime);
     }
     else {
         startstop.value = 'Start';
@@ -86,8 +63,7 @@ function reset() {
     if(state == 1){
         var resetdate = new Date();
         var resettime = resetdate.getTime();
-        var time = document.getElementById('time');
-        timecounter(resettime, time.value);
+        timecounter(resettime);
     }
     else {
         timer.value = "0:0:0";
