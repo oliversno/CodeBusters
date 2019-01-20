@@ -34,6 +34,7 @@ function marklap() {
     if(state == 1) {
         lapdate = timer.value;
         lapdetails.value += (++lapcounter) + '. ' + timer.value + '\n';
+        lapdetails.scrollTop = lapdetails.scrollHeight;
     }
 }
 
