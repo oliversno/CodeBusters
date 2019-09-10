@@ -16,19 +16,6 @@ std::stringstream nextLine(std::istream& is) {
     return os;
 }
 
-char space2underscoreOp(char c) {
-	if(c == ' ')
-		return '_';
-	return c;
-}
-
-std::string space2underscoreStr(std::string str) {
-	std::string res;
-	res.resize(str.size());
-	std::transform(str.begin(), str.end(), res.begin(), space2underscoreOp);
-	return res;
-}
-
 bool isNumber(std::string& str) {
     std::string::const_iterator it = str.begin();
     if(!isdigit(*it) && *it != '-')
@@ -65,12 +52,12 @@ class Score {
         std::vector<int> points;
         int total_points;
         std::vector<Question> questions;
-	int time_bonus;
     public:
     Score(void) { //ctor
         team_name = "NONE";
         team_num = -1;
         total_points = -1;
+
 	time_bonus = 0;
     }
     ~Score(void) { //dtor
@@ -119,10 +106,14 @@ class Score {
         }
     }
     void sumPoints() {
+
+        total_points = std::accumulate(points.begin(), points.end(), 0);
+
         total_points = std::accumulate(points.begin(), points.end(), 0) + time_bonus;
     }
     void addBonus(const int time) {
-	time_bonus = 4*(600-time);
+	    time_bonus = 4*(600-time);
+
     }
     std::string getTeamName() const {
         return team_name;
