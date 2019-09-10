@@ -1,7 +1,7 @@
 var timer;
 var state = 0;
 var stoptime = 0;
-var laps = 0;
+var lapcounter = 0;
 var current;
 var lapdate = ""
 var lapdetails;
@@ -16,8 +16,13 @@ function timecounter(starttime){
         timediff = timediff + stoptime;
     }
     if(state == 1) {
+        var time = document.getElementById('time');
+        if(timediff >= time.value*60*1000) { //10 min = 600000
+            lapdetails.value += 'time up';
+            startstop();
+        }
         timer.value = formattedtime(timediff);
-        refresh = setTimeout('timecounter(' + starttime +');',10)
+        refresh = setTimeout(timecounter, 10, starttime)
     }
     else {
         window.clearTimeout(refresh);
@@ -27,31 +32,9 @@ function timecounter(starttime){
 
 function marklap() {
     if(state == 1) {
-        if(lapdate != '') {
-            var lapold = lapdate.split(':');
-            var lapnow = timer.value.split(':');
-            var laps = new Array();
-            for (var i = 0; i < lapold.length; i++) {
-                laps[i] = new Array();
-                laps[i][0] = lapold[i]*1; // store old lap
-                laps[i][1] = lapnow[i]*1; // store new lap
-            }
-            if(laps[1][1] < laps[1][0]) { // if new lap < old lap
-                laps[1][1] += 60;
-                laps[0][1] -= 1;
-            }
-            if(laps[2][1] < laps[2][0]) {
-                laps[2][1] += 10;
-                laps[1][1] -= 1;
-            }
-            var mzereos = (laps[0][1] - laps[0][0]) < 10?'0':'';
-            var szeroes = (laps[1][1] - laps[1][0]) <10?'0':'';
-            lapdetails.value += '\t+' + mzereos + (lapcount[0][1] - lapcount[0][0]) + ':' 
-            + szeros + (lapcount[1][1] - lapcount[1][0]) + ':' 
-               + (lapcount[2][1] - lapcount[2][0]) + '\n';
-        }
         lapdate = timer.value;
-        lapdetails.value += (++lapcounter) + '. ' + stopwatch.value;
+        lapdetails.value += (++lapcounter) + '. ' + timer.value + '\n';
+        lapdetails.scrollTop = lapdetails.scrollHeight;
     }
 }
 
