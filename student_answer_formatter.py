@@ -21,13 +21,14 @@ def main():
 	teamNum = splitName[0]
 	teamName = splitName[1]
 	formattedNameNum = teamNum + '\t' +teamName
+
 	newLine = []
 	with open(input_name, 'r') as fin:
 		firstLine = True
 		for line in islice(fin, 0, None):
 			if(firstLine):
 				firstLine = False
-				line = line.rstrip('\n')
+				line = line.rstrip('\n'
 				if(line+".txt" != formattedNameNum):
 					print ('File Name does not match File Header!')
 					exit(1)

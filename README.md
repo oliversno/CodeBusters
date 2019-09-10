@@ -1,16 +1,19 @@
 # CodeBusters
 A test grader for the Science Olympiad Code Busters Event (2018-2019)
 
+## **Required Packages**
+colordiff - sudo apt-get install colordiff
+
 ## **Input Format**
 The input to the program should be a .tar archive containing a set of tab deliminated .txt files. There should be one Answer Key file and Student Answer Sheet file for each team in the event.
 
 ### *Answer Key*
 The answer key to the test should be in a tab deliminated .txt file named "KEY.txt". It should match the following formatting:
 ```
-TOURNAMENT_NAME     Codebusters Answer Key
-ANS1     PTS1	TIEBREAKER1
-ANS2     PTS2	TIEBREAKER2
-ANSN     PTSN	TIEBREAKN
+TOURNAMENT_NAME
+ANS1     PTS1
+ANS2     PTS2
+ANSN     PTSN
 ```
 Where EVENT_NAME is the name of the event that is being graded. N is the number of questions on the test and ANS is the correct answer to each question. A single ANS should be formatted as a series of uppercase characters without punctuation or spacing, or a number. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readibility). PTS should contain the number of points the question is worth. This field should contain a positive number. Each field should be seperated by a single TAB character as a tab deliminated file suggests. TIEBREAKER should list the tiebreaker order the questions are in. Where 1 is the first question ranked in the event of a tie and so on. Each field shoud contain a positive number from 1 to N.
 
@@ -21,8 +24,9 @@ TEAM_NUMBER     TEAM_NAME
 ANSWER1
 ANSWER2
 ANSWERN
+BONUS_TIME
 ```
-Where TEAM_NUMBER and TEAM_NAME are the name and number of the team whose score you are entering into the program. N is the number of questions on the test ANSWER is the answer the team submitted for each question. A single ANSWER should be formatted as a series of uppercase characters without punctuation or spacing. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readability). Each field should be seperated by a single TAB character as a tab deliminated file suggests.
+Where TEAM_NUMBER and TEAM_NAME are the name and number of the team whose score you are entering into the program. N is the number of questions on the test ANSWER is the answer the team submitted for each question. A single ANSWER should be formatted as a series of uppercase characters without punctuation or spacing. BONUS_TIME sould be the amount of time the team took to answer the bonus question in seconds, decimals are accepted. If the team did not attempt the timed question,or did not solve it in time list 600 (10 min). The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readability). Each field should be seperated by a single TAB character as a tab deliminated file suggests.
 
 ## **Output Format**
 The program will output several files. The most important being the Rankings Sheet. For each team there will also be a Student Scored Sheet.
@@ -53,7 +57,7 @@ TEAM_NUM - TEAM_NAME Score Sheet - TOURNAMENT_NAME
 ***
 | Student Answer | Correct Answer | Points |      Diff      |
 |:--------------:|:--------------:|-------:|:--------------:|
-|   STUDENTANS   |    CORECTANS   |    PTS | STUDENTDIFFANS |
+|   STUDENTANS   |    CORRECTANS   |    PTS | STUDENTDIFFANS |
 
 
 The tab deliminated version will be of the form:
