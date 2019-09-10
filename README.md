@@ -10,7 +10,7 @@ The input to the program should be a .tar archive containing a set of tab delimi
 ### *Answer Key*
 The answer key to the test should be in a tab deliminated .txt file named "KEY.txt". It should match the following formatting:
 ```
-TOURNAMENT_NAME     Codebusters Answer Key
+TOURNAMENT_NAME
 ANS1     PTS1
 ANS2     PTS2
 ANSN     PTSN
@@ -24,8 +24,9 @@ TEAM_NUMBER     TEAM_NAME
 ANSWER1
 ANSWER2
 ANSWERN
+BONUS_TIME
 ```
-Where TEAM_NUMBER and TEAM_NAME are the name and number of the team whose score you are entering into the program. N is the number of questions on the test ANSWER is the answer the team submitted for each question. A single ANSWER should be formatted as a series of uppercase characters without punctuation or spacing. The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readability). Each field should be seperated by a single TAB character as a tab deliminated file suggests.
+Where TEAM_NUMBER and TEAM_NAME are the name and number of the team whose score you are entering into the program. N is the number of questions on the test ANSWER is the answer the team submitted for each question. A single ANSWER should be formatted as a series of uppercase characters without punctuation or spacing. BONUS_TIME sould be the amount of time the team took to answer the bonus question in seconds, decimals are accepted. If the team did not attempt the timed question,or did not solve it in time list 600 (10 min). The program should correct most formatting errors if it is more convenient to differ in answer formatting (e.g. including spaces for readability). Each field should be seperated by a single TAB character as a tab deliminated file suggests.
 
 ## **Output Format**
 The program will output several files. The most important being the Rankings Sheet. For each team there will also be a Student Scored Sheet.

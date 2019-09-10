@@ -44,8 +44,11 @@ int main(int argc, char** argv) {
           fFormIn >> team_ans;
           teams[i].scoreAns(correct, team_ans);
         }
-      fFormIn.close();
-      teams[i].sumPoints();
+	int time_bonus;
+	fFormIn >> time_bonus;
+	teams[i].addBonus(time_bonus);
+      	fFormIn.close();
+      	teams[i].sumPoints();
     }
     // 22 is length of "Codebusters Answer Key" plus 1 for the tab
     std::sort(teams.begin(), teams.end());

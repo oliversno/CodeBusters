@@ -65,11 +65,13 @@ class Score {
         std::vector<int> points;
         int total_points;
         std::vector<Question> questions;
+	int time_bonus;
     public:
     Score(void) { //ctor
         team_name = "NONE";
         team_num = -1;
         total_points = -1;
+	time_bonus = 0;
     }
     ~Score(void) { //dtor
         points.clear();
@@ -117,7 +119,10 @@ class Score {
         }
     }
     void sumPoints() {
-        total_points = std::accumulate(points.begin(), points.end(), 0);
+        total_points = std::accumulate(points.begin(), points.end(), 0) + time_bonus;
+    }
+    void addBonus(const int time) {
+	time_bonus = 4*(600-time);
     }
     std::string getTeamName() const {
         return team_name;
